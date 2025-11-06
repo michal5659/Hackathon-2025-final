@@ -33,7 +33,33 @@ This multi-agent orchestration system processes user messages, classifies them, 
 The system follows a multi-agent architecture with the following components:
 
 ```
-<img width="912" height="864" alt="image" src="https://github.com/user-attachments/assets/dc5075c4-60e2-453d-895c-7b6f2e7779e7" />
+┌─────────────────────────────────────────────────────────────┐
+│                    Message Channels                          │
+│         Email    │    WhatsApp    │    Teams                 │
+└───────────────────┬─────────────────────────────────────────┘
+                    │
+        ┌───────────▼──────────────┐
+        │  Message Pull Service    │
+        └───────────┬──────────────┘
+                    │
+        ┌───────────▼──────────────┐
+        │    Classification Agent   │
+        │    (Azure OpenAI)        │
+        └───────────┬──────────────┘
+                    │
+        ┌───────────▼──────────────┐
+        │  Task Creation Agent     │
+        │    (IDIT API)              │
+        └───────────┬──────────────┘
+                    │
+        ┌───────────▼──────────────┐
+        │  Task Execution Agent    │
+        │    (Azure OpenAI)            │
+        └───────────┬──────────────┘
+                    │
+        ┌───────────▼──────────────┐
+        │   Response to User       │
+        └──────────────────────────┘
 
 ```
 
@@ -305,4 +331,5 @@ For issues and questions:
 
 **Last Updated**: November 2025  
 **Project**: Hackathon 2025
+
 
